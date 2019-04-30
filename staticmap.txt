@@ -1,0 +1,15 @@
+https://maps.googleapis.com/maps/api/staticmap?
+center=San+Francisco,CA
+&zoom=13
+&size=600x600
+&maptype=roadmap
+&markers=color:blue
+%7Clabel:S
+%7CSan Francisco City Hall
+&markers=color:green
+%7Clabel:G
+%7C37.7868714,-122.3961639
+&markers=color:red
+%7Clabel:C
+%7C37.7877363,-122.4054121
+&key=AIzaSyAHTqkY6j1DYBEeKpG6jfpQDH_jYYjkSiI
