@@ -12,4 +12,4 @@ center=San+Francisco,CA
 &markers=color:red
 %7Clabel:C
 %7C37.7877363,-122.4054121
-&key=AIzaSyAHTqkY6j1DYBEeKpG6jfpQDH_jYYjkSiI
+&key=
