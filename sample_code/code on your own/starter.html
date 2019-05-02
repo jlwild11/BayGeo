@@ -70,15 +70,15 @@ mapboxgl.accessToken = 'pk.eyJ1IjoiZGFuc3dpY2siLCJhIjoiY2l1dTUzcmgxMDJ0djJ0b2VhY
 var map = new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/light-v10',
-    center:, //CENTER ME ON SAN FRANCISCO
-    zoom: // PICK AN APPROPRIATE ZOOM LEVEL
+    center: [-122.507812, 37.7576792], //CENTER ME ON SAN FRANCISCO
+    zoom: 14 // PICK AN APPROPRIATE ZOOM LEVEL
 });
 
 map.on('load', function() {
 
     map.addSource('SOURCENAME', {
         'type': 'geojson',
-        'data': 'REPLACE ME'
+        'data': housingCountByNeighborhood
     });
 
     map.addLayer({
@@ -89,7 +89,7 @@ map.on('load', function() {
             'fill-color': [
                 'interpolate',
                 ['linear'],
-                ['get', 'COLUMN NAME GOES HERE'],
+                ['get', 'COUNT'],
                 /* the values below all need to be replaced */
                 0, '#F2F12D',
                 500000, '#EED322',
@@ -106,6 +106,8 @@ map.on('load', function() {
     }, 'waterway-label');
 
     // Add an interaction that puts a polygon's count value in a popup when the user clicks on it
+
+    
 });
 
 </script>
