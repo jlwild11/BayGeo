@@ -106,14 +106,15 @@
         }, 'waterway-label');
 
             // Add an interaction that puts a polygon's count value in a popup when the user clicks on it
-            map.on('click', 'LAYER-ID', function(e) {
-                var coordinates = e.features[0].geometry.coordinates.slice();
-                var description = e.features[0].properties.COUNT;
+            map.on('click', 'LAYER-ID', function (e) {
+                var coordinates = e.lngLat
+                var name = e.features[0].properties.nhood;
+                var count = e.features[0].properties.COUNT;
             
                 var myPopup = new mapboxgl.Popup();
             
                 myPopup.setLngLat(coordinates);
-                myPopup.setHTML(description);
+                myPopup.setHTML(count);
                 myPopup.addTo(map);
             });
         
