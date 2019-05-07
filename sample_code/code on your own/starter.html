@@ -58,75 +58,76 @@
     <div><span style='background-color: #F2F12D'></span>0</div>
 </div>
 
-<script>
-
-/* NOTE:
- * In order to test this file locally, you'll need to start up a local web server. 
- * One way to do this is to open your terminal and type in `python -m SimpleHTTPServer 9001`
- * You can also try using a service like jsfiddle
- */
-
-mapboxgl.accessToken = 'pk.eyJ1IjoiZGFuc3dpY2siLCJhIjoiY2l1dTUzcmgxMDJ0djJ0b2VhY2sxNXBiMyJ9.25Qs4HNEkHubd4_Awbd8Og';
-var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/light-v10',
-    center: [-122.45, 37.75], //CENTER ME ON SAN FRANCISCO
-    zoom: 12 // PICK AN APPROPRIATE ZOOM LEVEL
-});
-
-map.on('load', function() {
-
-    map.addSource('SOURCENAME', {
-        'type': 'geojson',
-        'data': housingCountByNeighborhood
+    <script>
+    
+    /* NOTE:
+     * In order to test this file locally, you'll need to start up a local web server. 
+     * One way to do this is to open your terminal and type in `python -m SimpleHTTPServer 9001`
+     * You can also try using a service like jsfiddle
+     */
+    
+    mapboxgl.accessToken = 'pk.eyJ1IjoiZGFuc3dpY2siLCJhIjoiY2l1dTUzcmgxMDJ0djJ0b2VhY2sxNXBiMyJ9.25Qs4HNEkHubd4_Awbd8Og';
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/light-v10',
+        center: [-122.45, 37.75], //CENTER ME ON SAN FRANCISCO
+        zoom: 12 // PICK AN APPROPRIATE ZOOM LEVEL
     });
 
-    map.addLayer({
-        'id': 'LAYER-ID',
-        'source': 'SOURCENAME',
-        'type': 'fill',
-        'paint': {
-            'fill-color': [
-                'interpolate',
-                ['linear'],
-                ['get', 'COUNT'],
-                /* the values below all need to be replaced */
-                0, '#F2F12D',
-                100, '#EED322',
-                200, '#E6B71E',
-                300, '#DA9C20',
-                400, '#CA8323',
-                500, '#B86B25',
-                600, '#A25626',
-                700, '#8B4225',
-                800, '#723122'
-            ],
-            'fill-opacity': 0.75
-        }
-    }, 'waterway-label');
+    map.on('load', function() {
+    
+        map.addSource('SOURCENAME', {
+            'type': 'geojson',
+            'data': housingCountByNeighborhood
+        });
+    
+        map.addLayer({
+            'id': 'LAYER-ID',
+            'source': 'SOURCENAME',
+            'type': 'fill',
+            'paint': {
+                'fill-color': [
+                    'interpolate',
+                    ['linear'],
+                    ['get', 'COUNT'],
+                    /* the values below all need to be replaced */
+                    0, '#F2F12D',
+                    100, '#EED322',
+                    200, '#E6B71E',
+                    300, '#DA9C20',
+                    400, '#CA8323',
+                    500, '#B86B25',
+                    600, '#A25626',
+                    700, '#8B4225',
+                    800, '#723122'
+                ],
+                'fill-opacity': 0.75
+            }
+        }, 'waterway-label');
 
-    // Add an interaction that puts a polygon's count value in a popup when the user clicks on it
-    map.on('click', 'LAYER-ID', function(e) {
-        var coordinates = e.features[0].geometry.coordinates.slice();
-        var description = e.features[0].properties;
-    
-        var myPopup = new mapboxgl.Popup();
-    
-        myPopup.setLngLat(coordinates);
-        myPopup.setHTML(description);
-        myPopup.addTo(map);
-    });
+        // Add an interaction that puts a polygon's count value in a popup when the user clicks on it
+        map.on('click', 'LAYER-ID', function(e) {
+            var coordinates = e.features[0].geometry.coordinates.slice();
+            var description = e.features[0].properties.COUNT;
         
-    // Change the cursor to a pointer when the mouse is over the places layer.
-    map.on('mouseenter', 'LAYER_ID', function () {
-    map.getCanvas().style.cursor = 'pointer';
-    });
-     
-    // Change it back to a pointer when it leaves.
-    map.on('mouseleave', 'LAYER-ID', function () {
-    map.getCanvas().style.cursor = '';
-    });
-});
+            var myPopup = new mapboxgl.Popup();
+        
+            myPopup.setLngLat(coordinates);
+            myPopup.setHTML(description);
+            myPopup.addTo(map);
+        });
+        
+            // Change the cursor to a pointer when the mouse is over the places layer.
+            map.on('mouseenter', 'LAYER-ID', function () {
+                map.getCanvas().style.cursor = 'pointer';
+            });
+
+            // Change it back to a pointer when it leaves.
+            map.on('mouseleave', 'LAYER-ID', function () {
+                map.getCanvas().style.cursor = '';
+            });
+        });
+
 
 </script>
 
