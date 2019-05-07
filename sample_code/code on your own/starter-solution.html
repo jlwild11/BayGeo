@@ -14,14 +14,13 @@
             margin: 0;
             padding: 0;
         }
-
+        
         #map {
             position: absolute;
             top: 0;
             bottom: 0;
             width: 100%;
         }
-
     </style>
 </head>
 
@@ -39,11 +38,11 @@
             right: 10px;
             z-index: 1;
         }
-
+        
         .legend h4 {
             margin: 0 0 10px;
         }
-
+        
         .legend div span {
             border-radius: 50%;
             display: inline-block;
@@ -51,7 +50,6 @@
             margin-right: 5px;
             width: 10px;
         }
-
     </style>
 
     <div id='map'></div>
@@ -71,7 +69,6 @@
     </div>
 
     <script>
-
         /* NOTE:
          * In order to test this file locally, you'll need to start up a local web server. 
          * One way to do this is to open your terminal and type in `python -m SimpleHTTPServer 9001`
@@ -86,7 +83,7 @@
             zoom: 12.3 // PICK AN APPROPRIATE ZOOM LEVEL
         });
 
-        map.on('load', function () {
+        map.on('load', function() {
 
             map.addSource('SOURCENAME', {
                 'type': 'geojson',
@@ -99,10 +96,8 @@
                 'type': 'fill',
                 'paint': {
                     'fill-color': [
-                        'interpolate',
-                        ['linear'],
-                        ['get', 'COUNT'],
-                        -1, '#F2F12D',
+                        'interpolate', ['linear'],
+                        ['get', 'COUNT'], -1, '#F2F12D',
                         48, '#EED322',
                         119, '#E6B71E',
                         418, '#DA9C20',
@@ -117,7 +112,7 @@
             }, 'waterway-label');
 
             // Add an interaction that puts a polygon's count value in a popup when the user clicks on it
-            map.on('click', 'LAYER-ID', function (e) {
+            map.on('click', 'LAYER-ID', function(e) {
                 var coordinates = e.lngLat
                 var name = e.features[0].properties.nhood;
                 var count = e.features[0].properties.COUNT;
@@ -131,16 +126,15 @@
             });
 
             // Change the cursor to a pointer when the mouse is over the places layer.
-            map.on('mouseenter', 'LAYER-ID', function () {
+            map.on('mouseenter', 'LAYER-ID', function() {
                 map.getCanvas().style.cursor = 'pointer';
             });
 
             // Change it back to a pointer when it leaves.
-            map.on('mouseleave', 'LAYER-ID', function () {
+            map.on('mouseleave', 'LAYER-ID', function() {
                 map.getCanvas().style.cursor = '';
             });
         });
-
     </script>
 
 </body>
