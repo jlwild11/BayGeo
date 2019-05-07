@@ -108,7 +108,7 @@ map.on('load', function() {
     // Add an interaction that puts a polygon's count value in a popup when the user clicks on it
 map.on('click', 'LAYER-ID', function(e) {
     var coordinates = e.features[0].geometry.coordinates.slice();
-    var description = e.features[0].properties.popupContent;
+    var description = e.features[0].properties;
 
     var myPopup = new mapboxgl.Popup();
 
