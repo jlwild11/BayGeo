@@ -28,7 +28,7 @@
         mapboxgl.accessToken = 'pk.eyJ1Ijoiamx3aWxkMTEiLCJhIjoiY2p2ZTZobXV4MW55bDQ0bm11aDg3ZWgzMCJ9.NU98yfiOLQKKOc6FE1cf5Q';
         var map = new mapboxgl.Map({
             container: 'map', // container id
-            style: 'mapbox://styles/mapbox/light-v10', // stylesheet location
+            style: 'mapbox://styles/mapbox/outdoors-v11', // stylesheet location
             center: [-84.5, 38.05], // starting position
             zoom: 12 // starting zoom
         });
@@ -69,7 +69,8 @@
               data: hospitals
             },
             layout: {
-              'icon-image': 'hospital-15'
+              'icon-image': 'hospital-15',
+              'icon-size': 3
             },
             paint: { }
           });
@@ -81,7 +82,8 @@
               data: libraries
             },
             layout: {
-              'icon-image': 'library-15'
+              'icon-image': 'library-15',
+              'icon-size': 3
             },
             paint: { }
           });
