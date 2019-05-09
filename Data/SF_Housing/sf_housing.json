@@ -1,6 +1,3 @@
-"New housing units added between 2015 and 2018, summed by neighborhood."
-"Source: https://data.sfgov.org/Housing-and-Buildings/Map-of-Housing-Completions-by-Analysis-Neighborhoo/w66v-bvns"
-
 {
 "type": "FeatureCollection",
 "name": "sf_housing_geojson2",
