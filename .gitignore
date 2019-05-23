@@ -1,2 +1,4 @@
 *.gdoc
 *.gsheet
+sitecake-backup/
+sitecake-temp/
