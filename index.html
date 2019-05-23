@@ -28,6 +28,17 @@
                 <li><a class="" href="nav_header_top.html" title="Navigation">Navigation</a></li>
             </ul>
         </div>
+        <div>
+            <script>
+                    var link = document.querySelector('link[rel="import"]');
+                    var content = link.import;
+                
+                    // Grab DOM from warning.html's document.
+                    var el = content.querySelector('.container');
+                
+                    document.body.appendChild(el.cloneNode(true));
+                </script>
+        </div>
         <div class="pageheader">
             <div class="container">
                 <div class="row">
