@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>A D3 map</title>
+  <script src='https://d3js.org/d3.v5.min.js'></script>
+  <script src='../sample_code/code on your own/sf_housing_geojson.js'></script>
+  
+  <style> 
+  #choroplethTooltip { 
+    opacity: 0;
+    position: absolute;
+    font-size: 1em;
+    max-width: 150px;
+    background-color: #dff;
+    padding: 0.5em;
+    border: 1px #333 solid;
+    border-radius: 6px;
+    pointer-events: none;
+    } 
+    </style>
+  
+</head>
+<body>
+  <script>
+  sfHousingData = housingCountByNeighborhood;
+
+var width = 1000,
+    height = 740;
+
+var svg = d3.select('body')
+  .append('svg')
+  .attr('width', width)
+  .attr('height', height);
+
+var g = svg.append('g');
+var textBox = svg.append('div').attr('id', 'info-box').attr('x', 10).attr('y', 20).html('<span>HELLO</span>');
+  
+// Define the div for the tooltip
+// The rest of the tooltip's styles are defined in another cell
+var tooltip = d3.select("body").append("div")	
+    .attr("id", "choroplethTooltip");
+
+
+// Get the max housing count to define the top of our color range
+var max_houses = d3.max(sfHousingData.features, d => { 
+  return d.properties.COUNT 
+});
+
+// Create a function that returns a color value given some input
+var color = d3.scaleLinear().domain([0, max_houses]).range(['beige', 'red']);
+
+// Our old pal Mercator 
+var mercatorProjection = d3.geoMercator()
+                          .center([-122.43598, 37.76091])
+                          .scale(270000)
+                          .translate([width / 1.95, height / 1.65]);
+
+var geoPath = d3.geoPath()
+    .projection(mercatorProjection);
+
+g.selectAll('path')
+  .data(sfHousingData.features)
+  .enter()
+  .append('path')
+  .attr('fill', d => {
+    // Here's where the choropleth magic gets applied to our SVG elements.
+    return color(d.properties.COUNT);
+  })
+  .attr('stroke', '#fff')
+  .attr('stroke-width', 1)
+  .attr('d', geoPath)
+  .on("mouseover", function(d) {		
+    tooltip.transition()		
+      .duration(200)
+      .style("opacity", 1);		
+    tooltip.html(`<span>${d.properties.COUNT} units were built in <strong>${d.properties.nhood}</strong>.</span>`)
+      .style("left", (d3.event.pageX) + "px")		
+      .style("top", (d3.event.pageY - 28) + "px");
+    d3.select(this).style('stroke-width', 3);
+  })					
+  .on("mouseout", function(d) {		
+    tooltip.transition()		
+      .duration(500)
+      .style("opacity", 0);
+    d3.select(this).style('stroke-width', 1);
+  });
+  </script>
+</body>
+</html>

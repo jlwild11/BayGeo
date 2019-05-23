@@ -1,9 +1,12 @@
-<!DOCTYPE html>
+<!doctype html>
 <html class="full" lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Bootstrap Core CSS -->
+    <!-- Make sure the <html>
+    tag is set to the .full CSS class. Change the background image in the full.css file. --> 
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Leaflet Map</title>
+        <!-- Bootstrap Core CSS -->
         <link href="../css/bootstrap.css" rel="stylesheet">
         <!-- Sitecake styles CSS -->
         <link href="../css/sitecake.css" rel="stylesheet">
@@ -15,11 +18,8 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-    
-    
-    
-	<title>Quick Start - Leaflet</title>
-	<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+        
+        <!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 	<link href="docs/images/favicon.ico" rel="shortcut icon" type="image/x-icon" /><!-- Add a `link` tag for Leaflet's CSS -->
 	<link crossorigin="" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" rel="stylesheet" /><!-- Add a `script` tag for Leaflet's JavaScript --><!-- Make sure you put this AFTER Leaflet's CSS --><script src="https://unpkg.com/leaflet@1.4.0/dist/leaflet.js" integrity="sha512-QVftwZFqvtRNi0ZyCtsznlKSWOStnDORoefr1enyq5mVL4tmKB3S/EnC3rRJcxCPavG10IcrVGSmPh6Qw5lwrg==" crossorigin=""></script><!-- Set the map's width to 600 pixels and height to 400 pixels in a `style` tag -->
 	<style type="text/css">#map{
@@ -27,35 +27,31 @@
         height:400px;
     }
 	</style>
-	
-	
-	
-	
-	
-</head>
-<body>
-    <div class="container">
+        
+        
+        
+    </head>
+    <body>
+        <div class="container">
             <ul class="navigation sc-nav">
                 <li><a class="active" href="./" title="Home">Home</a></li>
-                <li><a class="active" href="./leaflet-geodata/index.html" title="Leaflet">Leaflet Map</a></li>
+                <li><a class="active" href="leaflet_map.html" title="Leaflet">Leaflet Map</a></li>
             </ul>
         </div>
-        <div class="Leaflet Map">
+        <div class="pageheader">
             <div class="container">
                 <div class="row">
                     <div class="sc-content col-xs-9 sc-content">
-                        <h1 spellcheck="false">Leaflet Map Example</h1>
-                        <p class="lead">This is a map created with Leaflet.js. </p>
+                        <h1 spellcheck="false">Leaflet Map</h1>
+                        <p class="lead">This map was created with Leaflet.js </p>
                     </div>
                     <div class="sc-content col-xs-3 sc-content"></div>
                 </div>
             </div>
         </div>
-    
-    
-    
 
-<p><a href="../index/index.html" target="_self">Link to page 2</a></p>
+
+<p><a href="./index/index.html" target="_self">Link to page 2</a></p>
 <!-- Create a div to house the map -->
 
 <div class="sc-content"> 
