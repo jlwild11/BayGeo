@@ -20,7 +20,7 @@
         <![endif]-->
         
         <!-- Import Top Row Navigation Header  -->
-        <link rel="import" href="https://raw.githubusercontent.com/jlwild11/jlwild11.github.io/master/nav_header_top.html">
+        <script src='../js/includeHTML.js'></script>
  
 
     </head>
@@ -32,17 +32,15 @@
                 <li><a class="" href="nav_header_top.html" title="Navigation">Navigation</a></li>
             </ul>
         </div> -->
-        <div>
-            <script>
-                    var link = document.querySelector('link[rel="import"]');
-                    var content = link.import;
-                
-                    // Grab DOM from warning.html's document.
-                    var el = content.querySelector('.container');
-                
-                    document.body.appendChild(el.cloneNode(true));
-                </script>
-        </div>
+    <div>
+    <!-- Add Custom Top Row Navigation Header-->    
+        <div w3-include-html="https://raw.githubusercontent.com/jlwild11/jlwild11.github.io/master/nav_header_top.html"></div>
+
+        <script>
+            includeHTML();
+        </script>
+
+    </div>
         <div class="pageheader">
             <div class="container">
                 <div class="row">
