@@ -18,16 +18,18 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-        <link rel="import" href="nav_header_top.html">
+        
+        <!-- Import Top Row Navigation Header  -->
+        <link rel="import" href="https://raw.githubusercontent.com/jlwild11/jlwild11.github.io/master/nav_header_top.html">
     </head>
     <body>
-        <div class="container">
+    <!--    <div class="container">
             <ul class="navigation sc-nav">
                 <li><a class="active" href="./" title="Home">Home</a></li>
                 <li><a class="" href="leaflet_map.html" title="Leaflet">Leaflet Map</a></li>
                 <li><a class="" href="nav_header_top.html" title="Navigation">Navigation</a></li>
             </ul>
-        </div>
+        </div> -->
         <div>
             <script>
                     var link = document.querySelector('link[rel="import"]');
@@ -66,6 +68,7 @@
             </ul>
         </div>
         <div>
+            <!-- Add Top Row Navigation Header from link above-->
             <script>
                     var link = document.querySelector('link[rel="import"]');
                     var content = link.import;
