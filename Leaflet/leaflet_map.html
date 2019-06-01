@@ -1,9 +1,11 @@
 <!doctype html>
 <html lang="en">
-<!-- Make sure the <html>
-    tag is set to the .full CSS class. Change the background image in the full.css file. -->
 
 <head>
+!-- 
+Add standard webapage template info below
+Edit 1- title, 2 - confirm css links, 3 - CSS id style to highlight active page
+-->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Leaflet Map</title>
@@ -25,6 +27,7 @@
     <script src='../js/includeHTML.js'></script>
 
     <style>
+        <!-- Edit CSS IDs to highlight active nav headers -->
         #Web_Maps a {
             background-color: #0086d0;
             color: white;
@@ -35,8 +38,13 @@
             color: white;
         }
     </style>
+!-- 
+Add standard webapage template info above
+-->
 
-
+!-- 
+Add any map links and info necessary below
+-->
     <!-- Add a `link` tag for Leaflet's CSS -->
     <link crossorigin="" href="https://unpkg.com/leaflet@1.4.0/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" rel="stylesheet" />
     <!-- Add a `script` tag for Leaflet's JavaScript -->
@@ -49,9 +57,15 @@
             height: 400px;
         }
     </style>
+!-- 
+Add any map links and info necessary above
+-->
 </head>
 
 <body>
+!-- 
+Add standard webpage navigation rows, and block pageheader below
+-->
     <div>
         <!-- Add Custom Top Row Navigation Header-->
         <div w3-include-html="https://raw.githubusercontent.com/jlwild11/jlwild11.github.io/master/nav_header_top.html"></div>
@@ -60,13 +74,13 @@
         </script>
     </div>
     <div>
-        <!-- Add Custom 2nd Row Navigation Header-->
+        <!-- Add Custom 2nd Row Navigation Header. Confirm Location is correct-->
         <div w3-include-html="https://raw.githubusercontent.com/jlwild11/WebMaps/master/nav_header_second_row.html"></div>
         <script>
             includeHTML();
         </script>
     </div>
-
+        <!-- Edit pageheader info-->
     <div class="pageheader">
         <div class="container">
             <div class="row">
@@ -79,6 +93,12 @@
             </div>
         </div>
     </div>
+!-- 
+Add standard webpage navigation rows, and block pageheader above
+-->
+!-- 
+Add map stuff below.  Edit below Div Class=sc-content.
+-->
     <div class="container">
         <div class="sc-content">
             <div id="map"> </div>
